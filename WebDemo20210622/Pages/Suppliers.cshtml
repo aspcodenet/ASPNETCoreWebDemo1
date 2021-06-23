@@ -1,0 +1,37 @@
+﻿@page
+@model SupplierModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Lista alla suppliers</h1>
+
+<button onclick="OnButtonClicked()">Klicka</button>
+<span id="resultat"></span>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Namn</th>
+        <th>City</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var supplier in Model.Suppliers)
+    {
+        <tr>
+            <td>@supplier.Name</td>
+            <td>@supplier.City</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        function OnButtonClicked() {
+            document.getElementById("resultat").innerText = "Jaha nu klickade nån";
+        }
+    </script>
+}
